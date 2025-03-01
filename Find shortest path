@@ -1,0 +1,53 @@
+package recursion;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.OptionalInt;
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+public class Practice {
+
+	
+		public static void main(String[] args) {
+			
+			 int[][] matrix = {
+			            {1, 1, 1},
+			            {1, 1, 1},
+			            {1, 1, 1}
+			        };
+			        int startRow = 0, startCol = 0;
+			        int endRow = 2, endCol = 2;
+			        
+			        int result = findShortestPath(matrix, startRow, startCol, endRow, endCol);
+			        System.out.println(result);
+			
+		}
+
+		public static int findShortestPath(int[][] matrix, int row, int col, int endRow, int endCol) {
+	       
+	        if (row == endRow && col == endCol) {
+	            return 0;
+	        }
+
+	       
+	        if (row > endRow || col > endCol) {
+	            return Integer.MAX_VALUE;
+	        }
+
+	        
+	        int rightMove = findShortestPath(matrix, row, col + 1, endRow, endCol);
+	       
+	        int downMove = findShortestPath(matrix, row + 1, col, endRow, endCol);
+	       
+
+	        
+	        return  1+Math.min(rightMove, downMove);
+	    }
+}
+
+
+
