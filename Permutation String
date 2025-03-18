@@ -1,0 +1,39 @@
+package recursion;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.stream.Collectors;
+
+public class Service {
+
+	public static Scanner scanner=new Scanner(System.in);
+
+	public static void main(String []args)
+	{
+		 String str = "kfg";
+		 permutate(str,"");
+	       
+	
+
+}
+
+	private static void permutate(String str, String prefix) {
+		
+		if(str.isEmpty())
+		{
+			System.out.println(prefix);
+			return;
+		}
+		
+		for(int i=0;i<str.length();i++)
+		{
+			char c=str.charAt(i);
+			String remaining=str.substring(0,i)+str.substring(i+1);
+			permutate(remaining,prefix+c);
+		}
+		
+	}
+}
