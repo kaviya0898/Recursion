@@ -1,0 +1,28 @@
+public static void main(String []args)
+	{
+	
+		String str="abc";
+		findAllSubString(str,0,1);
+		
+	}
+
+	private static void findAllSubString(String str, int start, int end) {
+		
+		if(start==str.length())
+		{
+			return;
+		}
+		
+		if(end>str.length())
+		{
+			findAllSubString(str,start+1,start+2);
+		}
+		
+		else
+		{
+			System.out.println(str.substring(start, end));
+			findAllSubString(str,start,end+1);
+		}
+		
+		
+	}
